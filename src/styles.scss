@@ -1,1 +1,125 @@
-/* You can add global styles to this file, and also import other style files */
+@import './fonts.scss';
+
+:root {
+  --brand-blue: #2AA7DF;
+  --brand-green: #A3CC39;
+  --light-green: #97CF00;
+  --light-gray: #F2F5FA;
+  --max-content-width: 1280px;
+  --section-padding: 100px;
+}
+
+section {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+}
+.section-content {
+  display: flex;
+  max-width: var(--max-content-width);
+  padding: 0 var(--section-padding);
+  width: 100%;
+  align-items: center;
+}
+.section-content.no-padding {
+  width: 100%;
+  max-width: 1480px;
+  padding: 0;
+}
+.navbar {
+  position: fixed;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  transition: transform .35s,opacity .2s;
+}
+.navbar-content {
+  width: 100%;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  background-color: transparent;
+  color: black;
+  font-family: "Montserrat Medium";
+}
+.spacer {
+  flex: 1;
+}
+.navbar a {
+  color: black;
+  font-style: normal;
+  margin-right: 50px;
+  text-decoration: none;
+}
+.btn {
+  padding: 8px 60px;
+  border-radius: 40px;
+  background-color: var(--brand-blue);
+  color: white;
+  font-family: "Montserrat Bold";
+  border: none;
+}
+.btn:hover{
+  background-color: #2a88df;
+}
+.btn-outline {
+  border: 1px solid var(--brand-blue);
+  background-color: white;
+  color: var(--brand-blue);
+}
+.btn-outline:hover {
+  border: 1px solid var(--brand-blue);
+  background-color: var(--brand-blue);
+  color: white;
+}
+.btn-outline-transparent {
+  border: 1px solid var(--brand-blue);
+  background-color: transparent;
+}
+.btn-big {
+  font-size: larger;
+  padding: 10px 70px;
+}
+h1 {
+  font-family: "Montserrat Medium";
+  font-weight: normal;
+  font-size: 2.5rem;
+}
+h2 {
+  font-family: "Montserrat Medium";
+  font-weight: normal;
+  font-size: 1.8rem;
+}
+.text-bold {
+  font-family: "Montserrat Bold";
+}
+.text-primary {
+  color: var(--brand-blue);
+}
+.text-secondary {
+  color: var(--light-green);
+
+}
+footer {
+  margin-top: 50px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 50px;
+}
+
+
+/* Responsive Styles */
+@media screen and (max-width: 767px) {
+  
+}
+
+@media screen and (max-width: 575px) {
+  
+}
