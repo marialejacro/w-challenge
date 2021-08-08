@@ -41,6 +41,7 @@ export class LandingComponent implements OnInit {
   constructor(private router: Router) { }
 
   ngOnInit(): void {
+    console.log('onInit');    
   }
 
   @HostListener("window:scroll", [])
