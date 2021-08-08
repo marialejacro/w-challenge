@@ -17,20 +17,27 @@ section {
   
 }
 .section-content {
-  display: flex;
-  max-width: var(--max-content-width);
-  padding: 0 var(--section-padding);
   width: 100%;
   align-items: center;
+  height: 100%;
+  @media screen and (min-width: 1023px) {
+    display: flex;
+    max-width: var(--max-content-width);
+    padding: 0 var(--section-padding);
+    max-width: var(--max-content-width);
+    padding: 0 var(--section-padding);
+  }
 }
 .section-content.no-padding {
   width: 100%;
-  max-width: 1480px;
   padding: 0;
+  @media screen and (min-width: 1023px) {
+    max-width: 1480px;
+  }
 }
 .navbar {
   position: fixed;
-  z-index: 2;
+  z-index: 4;
   top: 0;
   left: 0;
   right: 0;
@@ -38,7 +45,13 @@ section {
   align-items: center;
   justify-content: center;
   background-color: transparent;
-  transition: transform .35s,opacity .2s;
+  box-shadow: none;
+  transition: box-shadow 0.3s ease-in-out;
+}
+.navbar-shadow {
+  background-color: #fffffff5;
+  box-shadow: 0px 1px 12px 0px #d0d0d0;
+  transition: box-shadow 0.3s ease-in-out;
 }
 .navbar-content {
   width: 100%;
@@ -49,6 +62,80 @@ section {
   color: black;
   font-family: "Montserrat Medium";
 }
+.nav-option {
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
+}
+.arrow-btn {
+  width: 40px;
+  height: 40px;
+  position: relative;
+  @media screen and (min-width: 768px) {
+    display: none;
+  }
+  .arrow {
+    height: 10px;
+    width: 10px;
+    border-bottom: 2px solid black;
+    border-left: 2px solid black;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -75%) rotate(-45deg);
+  }
+  .arrow.up {
+    border-top: 2px solid black;
+    border-right: 2px solid black;
+    border-bottom: initial;
+    border-left: initial;
+    transform: translate(-50%,-25%) rotate(-45deg);
+  }
+}
+.dropdown-menu {
+  z-index: 5;
+  width: 150px;
+  background-color: white;
+  position: fixed;
+  right: 10px;
+  top: 40px;
+  display: none;
+  flex-direction: column;
+  box-shadow: 0px 1px 12px 0px #d0d0d0;
+  overflow: hidden;
+  visibility: none;
+  .menu-option {
+    width: 100%;
+    padding: 10px;
+    color: black;
+    font-style: normal;
+    margin-right: 50px;
+    text-decoration: none;
+    border-bottom: 1px solid #e5e3e3;
+  }
+  .menu-option:hover {
+    background-color: #e5e3e3;
+    color: var(--brand-blue);
+  }
+}
+.dropdown-menu.open {
+  display: flex;
+  @media screen and (min-width: 768px) {
+    display: none;
+  }
+
+}
+.logo {
+  width: 100px;
+  margin-left: 10px;
+  @media screen and (min-width: 768px) {
+    width: 150px;
+    margin-left: 20px;
+  }
+  @media screen and (min-width: 1023px) {
+    width: 180px;
+  }
+}
 .spacer {
   flex: 1;
 }
@@ -57,6 +144,9 @@ section {
   font-style: normal;
   margin-right: 50px;
   text-decoration: none;
+}
+.navbar a:hover {
+  color: var(--brand-blue);
 }
 .btn {
   padding: 8px 60px;
@@ -84,8 +174,10 @@ section {
   background-color: transparent;
 }
 .btn-big {
-  font-size: larger;
-  padding: 10px 70px;
+  @media screen and (min-width: 1023px) {
+    font-size: larger;
+    padding: 10px 70px;
+  }
 }
 h1 {
   font-family: "Montserrat Medium";
@@ -116,10 +208,38 @@ footer {
 
 
 /* Responsive Styles */
+@media screen and (max-width: 1023px) {
+  .btn-big {
+    font-size: medium;
+    padding: 8px 60px;
+  }
+}
+
+
 @media screen and (max-width: 767px) {
-  
+  h1 {
+    font-size: 2rem;
+  }
+  h2 {
+    font-size: 1.2rem;
+  }
 }
 
 @media screen and (max-width: 575px) {
-  
+  h1 {
+    font-size: 1.8rem;
+  }
+  h2 {
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 478px) {
+  h1 {
+    font-size: 1.2rem;
+  }
+  .btn-big {
+    font-size: small;
+    padding: 8px 40px;
+  }
 }

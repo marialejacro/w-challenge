@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-landing',
@@ -34,13 +35,35 @@ export class LandingComponent implements OnInit {
     }
   ]
 
-  constructor() { }
+  scrolling = false
+  openMenu = false
+
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
 
-  register() {
+  @HostListener("window:scroll", [])
+  onWindowScroll() {
+      this.scrolling = window.scrollY > 70
+      this.openMenu = false
+  }
+
+  @HostListener('window:resize', [])
+  onResize() {
+    this.openMenu = false
+  }
+
+  scrollTo($event: any, fragmentName: string) {
+    if($event) $event.preventDefault()
+    this.router.navigate([], { fragment: fragmentName })
+  }
+  
+  register($event: any) {
+    $event.preventDefault()
+    console.log('register')
     
   }
+  
 
 }
