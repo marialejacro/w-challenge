@@ -62,9 +62,14 @@ export class LandingComponent implements OnInit {
   
   register($event: any) {
     $event.preventDefault()
-    console.log('register')
-    
   }
   
+  openTwitter() {
+    window.location.href = "https://twitter.com/Wolox";
+  }
+
+  openWolox() {
+    window.location.href = "https://www.wolox.com.ar/";
+  }
 
 }
