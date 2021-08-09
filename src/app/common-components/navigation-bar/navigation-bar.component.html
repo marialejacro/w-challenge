@@ -1,0 +1,15 @@
+<div class="navbar" [ngClass]="{'navbar-shadow': scrolling}">
+    <div class="section-content">
+        <div class="navbar-content">
+            <img class="logo" alt="Wolox Logo" src="assets/images/logo_full_color.svg" />
+            <div class="spacer"></div>
+            <ng-content></ng-content>
+            <div class="arrow-btn" (click)="openMenu = !openMenu">
+                <div class="arrow" [ngClass]="{'up': openMenu}"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="dropdown-menu" [ngClass]="{'open': openMenu}">
+    <ng-content select="[dropdown-options]"></ng-content>
+</div>

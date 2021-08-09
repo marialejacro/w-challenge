@@ -1,0 +1,48 @@
+<div class="register">
+    <app-navigation-bar>
+        <a aria-label="Inicio" class="nav-option" routerLink="/">Inicio</a>
+        <ng-container dropdown-options>
+            <a aria-label="Inicio" class="menu-option" routerLink="/">Inicio</a>
+        </ng-container>
+    </app-navigation-bar>
+    <section>
+        <div class="section-content">
+            <div class="form">
+                <h2>Registro</h2>
+                <p>Completa el formulario para crear una cuenta en <span class="text-bold text-secondary">Wolox</span>
+                </p>
+                <form [formGroup]="newUserForm" (ngSubmit)="onSubmit()">
+                    <div class="grid">
+                        <div class="input-group col-6 col-sm-12">
+                            <input id="first-name" type="text" formControlName="name" placeholder="Nombre">
+                        </div>
+                        <div class="input-group col-6 col-sm-12">
+                            <input id="last-name" type="text" formControlName="lastName" placeholder="Apellido">
+                        </div>
+                        <div class="input-group col-12 col-sm-12">
+                            <input id="email" type="text" formControlName="email" placeholder="Email">
+                        </div>
+                        <div class="input-group col-6 col-sm-12">
+                            <input id="country" type="text" formControlName="country" placeholder="País">
+                        </div>
+                        <div class="input-group col-6 col-sm-12">
+                            <input id="phone" type="text" formControlName="phone" placeholder="Teléfono">
+                        </div>
+                        <div class="input-group col-6 col-sm-12">
+                            <input id="password" type="password" formControlName="password" placeholder="Contraseña">
+                        </div>
+                        <div class="input-group col-6 col-sm-12">
+                            <input id="repeat-password" type="password" formControlName="repeatPassword" placeholder="Repetir contrañena">
+                        </div>
+                    </div>
+                    <div class="checkbox">
+                        <input id="terms" type="checkbox" formControlName="terms">
+                        <label for="terms">Acepto <a href="https://www.wolox.com.ar/" target="_blank">Terminos y Condiciones</a></label>
+                    </div>
+                </form>
+                <button type="submit" class="btn register-btn" [disabled]="!newUserForm.valid">Registrarme</button>
+            </div>
+        </div>
+    </section>
+    <app-footer></app-footer>
+</div>

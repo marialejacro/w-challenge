@@ -1,4 +1,4 @@
-import { Component, OnInit, HostListener } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -35,24 +35,10 @@ export class LandingComponent implements OnInit {
     }
   ]
 
-  scrolling = false
-  openMenu = false
-
   constructor(private router: Router) { }
 
   ngOnInit(): void {
-    console.log('onInit');    
-  }
-
-  @HostListener("window:scroll", [])
-  onWindowScroll() {
-      this.scrolling = window.scrollY > 70
-      this.openMenu = false
-  }
-
-  @HostListener('window:resize', [])
-  onResize() {
-    this.openMenu = false
+    console.log('Landing init');    
   }
 
   scrollTo($event: any, fragmentName: string) {
@@ -60,16 +46,12 @@ export class LandingComponent implements OnInit {
     this.router.navigate([], { fragment: fragmentName })
   }
   
-  register($event: any) {
-    $event.preventDefault()
-  }
-  
   openTwitter() {
-    window.location.href = "https://twitter.com/Wolox";
+    window.location.href = "https://twitter.com/Wolox"
   }
 
   openWolox() {
-    window.location.href = "https://www.wolox.com.ar/";
+    window.location.href = "https://www.wolox.com.ar/"
   }
 
 }

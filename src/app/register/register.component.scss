@@ -1,0 +1,21 @@
+.register {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: auto;
+    .section-content {
+        display: flex;
+    }
+    .form {
+        max-width: 600px;
+        padding-top: 90px;
+    }
+    .register-btn {
+        float: right;
+        margin-top: 20px;    
+    }
+    @media screen and (max-width: 478px) {
+        padding: 0 20px 40px;
+    }
+}

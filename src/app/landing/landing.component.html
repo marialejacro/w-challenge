@@ -1,26 +1,17 @@
 <div class="landing">
     <!-- Navbar -->
-    <div class="navbar" [ngClass]="{'navbar-shadow': scrolling}">
-        <div class="section-content">
-            <div class="navbar-content">
-                <img class="logo" alt="Wolox Logo" src="assets/images/logo_full_color.svg" />
-                <div class="spacer"></div>
-                <a aria-label="Inicio" class="nav-option" href="#" (click)="scrollTo($event, 'start')">Inicio</a>
-                <a aria-label="Beneficios" class="nav-option" href="#" (click)="scrollTo($event, 'benefits')">Beneficios</a>
-                <button class="btn btn-outline nav-option" (click)="register($event)">
-                    Login
-                </button>
-                <div class="arrow-btn" (click)="openMenu = !openMenu">
-                    <div class="arrow" [ngClass]="{'up': openMenu}"></div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="dropdown-menu" [ngClass]="{'open': openMenu}">
-        <a aria-label="Inicio" class="menu-option" href="#" (click)="scrollTo($event, 'start')">Inicio</a>
-        <a aria-label="Beneficios" class="menu-option" href="#" (click)="scrollTo($event, 'benefits')">Beneficios</a>
-        <a aria-label="Login" class="menu-option" href="#" (click)="register($event)">Login</a>
-    </div>
+    <app-navigation-bar>
+        <a aria-label="Inicio" class="nav-option" href="#" (click)="scrollTo($event, 'start')">Inicio</a>
+        <a aria-label="Beneficios" class="nav-option" href="#" (click)="scrollTo($event, 'benefits')">Beneficios</a>
+        <button class="btn btn-outline nav-option" routerLink="/register">
+            Login
+        </button>
+        <ng-container dropdown-options>
+            <a aria-label="Inicio" class="menu-option" href="#" (click)="scrollTo($event, 'start')">Inicio</a>
+            <a aria-label="Beneficios" class="menu-option" href="#" (click)="scrollTo($event, 'benefits')">Beneficios</a>
+            <a aria-label="Login" class="menu-option" routerLink="/register">Login</a>
+        </ng-container>
+    </app-navigation-bar>
     <!-- Welcome -->
     <section id="start" class="hero-section">
         <div class="section-content">
@@ -79,22 +70,15 @@
         </div>
     </section>
     <!-- Footer -->
-    <section class="footer-section">
-        <footer>
-            <div>
-                <h1>
-                    <span class="text-bold">Gracias por </span>
-                    <span class="text-bold text-primary">completar el ejercicio</span>
+    <app-footer>
+        <h1>
+            <span class="text-bold">Gracias por </span>
+            <span class="text-bold text-primary">completar el ejercicio</span>
 
-                </h1>
-                <h2>Te invitamos a ver mas información</h2>
-                <div class="btn-container">
-                    <button class="btn btn-big" (click)="openWolox()">Conocer más</button>
-                </div>
-                <div>
-                    <img width="100" alt="Wolox Logo" src="assets/images/Ic_Wolox_Footer.svg" />
-                </div>
-            </div>
-        </footer>
-    </section>
+        </h1>
+        <h2>Te invitamos a ver mas información</h2>
+        <div class="btn-container">
+            <button class="btn btn-big" (click)="openWolox()">Conocer más</button>
+        </div>
+    </app-footer>
 </div>
