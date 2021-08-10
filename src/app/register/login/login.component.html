@@ -1,0 +1,21 @@
+<div class="form">
+    <h2>Login</h2>
+    <p>Ingresa tus datos para iniciar sesión en <span class="text-bold text-secondary">Wolox</span>
+    </p>
+    <form [formGroup]="loginForm" (ngSubmit)="login()">
+        <div class="grid">
+            <div class="input-group col-12">
+                <input id="email" type="text" formControlName="email" placeholder="Email">
+            </div>
+            <div class="input-group col-12">
+                <input id="password" type="password" formControlName="password" placeholder="Contraseña">
+            </div>
+        </div>
+        <div class="login-btn">
+            <button type="submit" class="btn" [disabled]="!loginForm.valid">Login</button>
+        </div>
+        <div class="register-link">
+            <a class="link" href="#" (click)="goToRegister($event)">Registrarme</a>
+        </div>
+    </form>
+</div>

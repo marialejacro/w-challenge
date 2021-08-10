@@ -7,41 +7,68 @@
     </app-navigation-bar>
     <section>
         <div class="section-content">
-            <div class="form">
-                <h2>Registro</h2>
-                <p>Completa el formulario para crear una cuenta en <span class="text-bold text-secondary">Wolox</span>
-                </p>
-                <form [formGroup]="newUserForm" (ngSubmit)="onSubmit()">
-                    <div class="grid">
-                        <div class="input-group col-6 col-sm-12">
-                            <input id="first-name" type="text" formControlName="name" placeholder="Nombre">
+            <app-login *ngIf="login; else registerForm" (register)="login = false"></app-login>
+            <ng-template #registerForm>
+                <div class="form">
+                    <h2>Registro</h2>
+                    <p>Completa el formulario para crear una cuenta en <span
+                            class="text-bold text-secondary">Wolox</span>
+                    </p>
+                    <form [formGroup]="newUserForm" (ngSubmit)="register()">
+                        <div class="grid">
+                            <div class="input-group col-6 col-sm-12">
+                                <input id="first-name" type="text" formControlName="name" placeholder="Nombre">
+                            </div>
+                            <div class="input-group col-6 col-sm-12">
+                                <input id="last-name" type="text" formControlName="lastName" placeholder="Apellido">
+                            </div>
+                            <div class="input-group col-12 col-sm-12">
+                                <input id="email" type="text" formControlName="email" placeholder="Email">
+                            </div>
+                            <div class="input-group col-6 col-sm-12">
+                                <ng-autocomplete [data]="countries | async" [searchKeyword]="'name'"
+                                    (selected)='onCountryChanged($event)' [itemTemplate]="itemTemplate"
+                                    placeholder="País" formControlName="country" [notFoundTemplate]="notFoundTemplate">
+                                </ng-autocomplete>
+
+                                <ng-template #itemTemplate let-item>
+                                    <div class="country-option">
+                                        <img src="{{item.flag}}">
+                                        <a [innerHTML]="item.name"></a>
+                                    </div>
+
+                                </ng-template>
+
+                                <ng-template #notFoundTemplate let-notFound>
+                                    <div [innerHTML]="notFound"></div>
+                                </ng-template>
+                            </div>
+                            <div class="input-group col-6 col-sm-12">
+                                <input id="phone" type="text" formControlName="phone" placeholder="Teléfono">
+                            </div>
+                            <div class="input-group col-6 col-sm-12">
+                                <input id="password" type="password" formControlName="password"
+                                    placeholder="Contraseña">
+                            </div>
+                            <div class="input-group col-6 col-sm-12">
+                                <input id="repeat-password" type="password" formControlName="repeatPassword"
+                                    placeholder="Repetir contrañena">
+                            </div>
                         </div>
-                        <div class="input-group col-6 col-sm-12">
-                            <input id="last-name" type="text" formControlName="lastName" placeholder="Apellido">
+                        <div class="checkbox">
+                            <input id="terms" type="checkbox" formControlName="terms">
+                            <label for="terms">Acepto <a class="link" href="#" target="_blank" (click)="openTerms($event)">Terminos y
+                                    Condiciones</a></label>
                         </div>
-                        <div class="input-group col-12 col-sm-12">
-                            <input id="email" type="text" formControlName="email" placeholder="Email">
+                        <div class="register-btn">
+                            <button type="submit" class="btn" [disabled]="!newUserForm.valid">Registrarme</button>
                         </div>
-                        <div class="input-group col-6 col-sm-12">
-                            <input id="country" type="text" formControlName="country" placeholder="País">
+                        <div class="login-link">
+                            <a class="link" href="#" (click)="openLogin($event)">Login</a>
                         </div>
-                        <div class="input-group col-6 col-sm-12">
-                            <input id="phone" type="text" formControlName="phone" placeholder="Teléfono">
-                        </div>
-                        <div class="input-group col-6 col-sm-12">
-                            <input id="password" type="password" formControlName="password" placeholder="Contraseña">
-                        </div>
-                        <div class="input-group col-6 col-sm-12">
-                            <input id="repeat-password" type="password" formControlName="repeatPassword" placeholder="Repetir contrañena">
-                        </div>
-                    </div>
-                    <div class="checkbox">
-                        <input id="terms" type="checkbox" formControlName="terms">
-                        <label for="terms">Acepto <a href="https://www.wolox.com.ar/" target="_blank">Terminos y Condiciones</a></label>
-                    </div>
-                </form>
-                <button type="submit" class="btn register-btn" [disabled]="!newUserForm.valid">Registrarme</button>
-            </div>
+                    </form>
+                </div>
+            </ng-template>
         </div>
     </section>
     <app-footer></app-footer>

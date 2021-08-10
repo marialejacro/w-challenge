@@ -1,0 +1,21 @@
+.form{
+    max-width: 600px;
+    padding-top: 90px;
+    .login-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .btn {
+            margin-top: 20px;
+            @media screen and (max-width: 478px) {
+                width: 100%;
+            }
+        }
+    }
+    .register-link{
+        margin-top: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}

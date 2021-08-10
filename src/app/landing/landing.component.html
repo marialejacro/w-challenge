@@ -3,13 +3,23 @@
     <app-navigation-bar>
         <a aria-label="Inicio" class="nav-option" href="#" (click)="scrollTo($event, 'start')">Inicio</a>
         <a aria-label="Beneficios" class="nav-option" href="#" (click)="scrollTo($event, 'benefits')">Beneficios</a>
-        <button class="btn btn-outline nav-option" routerLink="/register">
+        <a *ngIf="userLoggedIn" aria-label="Lista" class="nav-option" routerLink="/list">Lista</a>
+        <button *ngIf="!userLoggedIn; else logoutBtn" class="btn btn-outline nav-option" routerLink="/login">
             Login
         </button>
+        <ng-template #logoutBtn>
+            <button class="btn btn-outline nav-option" (click)="logout()">
+                Logout
+            </button>
+        </ng-template>
         <ng-container dropdown-options>
             <a aria-label="Inicio" class="menu-option" href="#" (click)="scrollTo($event, 'start')">Inicio</a>
             <a aria-label="Beneficios" class="menu-option" href="#" (click)="scrollTo($event, 'benefits')">Beneficios</a>
-            <a aria-label="Login" class="menu-option" routerLink="/register">Login</a>
+            <a *ngIf="userLoggedIn" aria-label="Lista" class="menu-option" routerLink="/list">Lista</a>
+            <a *ngIf="!userLoggedIn; else logoutOpt" aria-label="Login" class="menu-option" routerLink="/login">Login</a>
+            <ng-template #logoutOpt>
+                <a aria-label="Login" class="menu-option" (click)="logout()">Logout</a>
+            </ng-template>
         </ng-container>
     </app-navigation-bar>
     <!-- Welcome -->

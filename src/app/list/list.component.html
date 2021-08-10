@@ -1,0 +1,21 @@
+<div class="list">
+    <app-navigation-bar>
+        <a aria-label="Inicio" class="nav-option" routerLink="/home">Inicio</a>
+        <a aria-label="Lista" class="nav-option" routerLink="/list">Lista</a>
+        <button class="btn btn-outline nav-option" (click)="logout()">Logout</button>
+        <ng-container dropdown-options>
+            <a aria-label="Inicio" class="menu-option" routerLink="/home">Inicio</a>
+            <a aria-label="Lista" class="menu-option" routerLink="/list">Lista</a>
+            <a aria-label="Login" class="menu-option" (click)="logout()">Logout</a>
+        </ng-container>
+    </app-navigation-bar>
+    <section>
+        <div class="section-content">
+            <div class="results">
+                <h2>Pokemons</h2>
+                
+            </div>
+        </div>
+    </section>
+    <app-footer></app-footer>
+</div>

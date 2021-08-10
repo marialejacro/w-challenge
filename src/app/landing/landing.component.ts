@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-landing',
@@ -35,10 +36,12 @@ export class LandingComponent implements OnInit {
     }
   ]
 
-  constructor(private router: Router) { }
+  userLoggedIn = false
+
+  constructor(private router: Router, private authService: AuthService) { }
 
   ngOnInit(): void {
-    console.log('Landing init');    
+    this.userLoggedIn = this.authService.userLoggedIn()  
   }
 
   scrollTo($event: any, fragmentName: string) {
@@ -52,6 +55,11 @@ export class LandingComponent implements OnInit {
 
   openWolox() {
     window.location.href = "https://www.wolox.com.ar/"
+  }
+
+  logout() {
+    this.authService.logout()
+    this.userLoggedIn = this.authService.userLoggedIn()
   }
 
 }
