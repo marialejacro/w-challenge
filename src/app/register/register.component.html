@@ -18,12 +18,30 @@
                         <div class="grid">
                             <div class="input-group col-6 col-sm-12">
                                 <input id="first-name" type="text" formControlName="name" placeholder="Nombre">
+                                <p *ngIf="name.invalid && (name.touched)" class="alert alert-danger">
+                                    <span *ngIf="name.errors?.required">
+                                        Campo requerido
+                                    </span>
+                                </p>
                             </div>
                             <div class="input-group col-6 col-sm-12">
                                 <input id="last-name" type="text" formControlName="lastName" placeholder="Apellido">
+                                <p *ngIf="lastName.invalid && (lastName.touched)" class="alert alert-danger">
+                                    <span *ngIf="lastName.errors?.required">
+                                        Campo requerido
+                                    </span>
+                                </p>
                             </div>
                             <div class="input-group col-12 col-sm-12">
                                 <input id="email" type="text" formControlName="email" placeholder="Email">
+                                <p *ngIf="email.invalid && (email.touched)" class="alert alert-danger">
+                                    <span *ngIf="email.errors?.required; else emailInvalid">
+                                        Campo requerido
+                                    </span>
+                                    <ng-template #emailInvalid>
+                                        <span>El Email tiene un formato inválido</span>
+                                    </ng-template>
+                                </p>
                             </div>
                             <div class="input-group col-6 col-sm-12">
                                 <ng-autocomplete [data]="countries | async" [searchKeyword]="'name'"
@@ -42,17 +60,47 @@
                                 <ng-template #notFoundTemplate let-notFound>
                                     <div [innerHTML]="notFound"></div>
                                 </ng-template>
+                                <p *ngIf="country.invalid && (country.touched)" class="alert alert-danger">
+                                    Campo requerido
+                                </p>
                             </div>
                             <div class="input-group col-6 col-sm-12">
                                 <input id="phone" type="text" formControlName="phone" placeholder="Teléfono">
+                                <p *ngIf="phone.invalid && (phone.touched)" class="alert alert-danger">
+                                    <span *ngIf="phone.errors?.required; phoneInvalid">
+                                        Campo requerido
+                                    </span>
+                                    <span *ngIf="phone.errors?.pattern">
+                                        Ingresar solo números
+                                    </span>
+                                    <span *ngIf="phone.errors?.maxlength">
+                                        Debe ingresar máximo 10 números
+                                    </span>
+                                </p>
                             </div>
                             <div class="input-group col-6 col-sm-12">
                                 <input id="password" type="password" formControlName="password"
                                     placeholder="Contraseña">
+                                <p *ngIf="password.invalid && (password.touched)" class="alert alert-danger">
+                                    <span *ngIf="password.errors?.required; else passInvalid">
+                                        Campo requerido
+                                    </span>
+                                    <ng-template #passInvalid>
+                                        <span>La contraseña debe contener almenos un número y una letra y tener mínimo de 6 caracteres. </span>
+                                    </ng-template>
+                                </p>
                             </div>
                             <div class="input-group col-6 col-sm-12">
                                 <input id="repeat-password" type="password" formControlName="repeatPassword"
                                     placeholder="Repetir contrañena">
+                                <p *ngIf="repeatPassword.invalid && (repeatPassword.touched)" class="alert alert-danger">
+                                    <span *ngIf="repeatPassword.errors?.required">
+                                        Campo requerido
+                                    </span>
+                                </p>
+                                <p *ngIf="newUserForm.invalid && newUserForm.errors?.passwordConfirmError && (repeatPassword.touched)" class="alert alert-danger">
+                                    Las contraseñas no concuerdan
+                                </p>
                             </div>
                         </div>
                         <div class="checkbox">

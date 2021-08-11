@@ -5,10 +5,26 @@
     <form [formGroup]="loginForm" (ngSubmit)="login()">
         <div class="grid">
             <div class="input-group col-12">
-                <input id="email" type="text" formControlName="email" placeholder="Email">
+                <input id="email" type="text" formControlName="email" placeholder="Email" >
+                <p *ngIf="email.invalid && (email.touched)" class="alert alert-danger">
+                    <span *ngIf="email.errors?.required; else emailInvalid">
+                        Campo requerido
+                    </span>
+                    <ng-template #emailInvalid>
+                        <span>El Email tiene un formato inválido</span>
+                    </ng-template>
+                </p>
             </div>
             <div class="input-group col-12">
                 <input id="password" type="password" formControlName="password" placeholder="Contraseña">
+                <p *ngIf="password.invalid && (password.touched)" class="alert alert-danger">
+                    <span *ngIf="password.errors?.required; else passInvalid">
+                        Campo requerido
+                    </span>
+                    <ng-template #passInvalid>
+                        <span>La contraseña debe contener almenos un número y una letra y tener mínimo de 6 caracteres. </span>
+                    </ng-template>
+                </p>
             </div>
         </div>
         <div class="login-btn">

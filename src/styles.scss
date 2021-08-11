@@ -9,6 +9,7 @@
   --max-content-width: 1280px;
   --section-padding: 100px;
   --blue-dark: #2a63df;
+  --danger: #d60000;
 }
 
 section {
@@ -241,6 +242,7 @@ input {
   font-size: 0.9rem;
   border-radius: 5px;
   border: 1px solid var(--medium-gray);
+  height: 18px;
 }
 input:focus-visible {
   border: 2px solid var(--brand-blue);
@@ -282,6 +284,14 @@ select {
 select:focus-visible {
   border: 2px solid var(--brand-blue);
   outline: none;
+}
+.alert {
+  margin-top: 8px;
+  margin-bottom: 0;
+}
+.alert.alert-danger {
+  font-size: 0.7rem;
+  color: var(--danger);
 }
 /* Responsive Styles */
 @media screen and (max-width: 1023px) {
