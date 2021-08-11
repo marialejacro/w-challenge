@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { AbstractControl, ValidationErrors, ValidatorFn } from '@angular/forms';
 import { FormBuilder } from '@angular/forms';
 import { Validators } from '@angular/forms';
@@ -12,7 +12,7 @@ import { CountryService } from '../services/country.service';
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss']
 })
-export class RegisterComponent implements OnInit {
+export class RegisterComponent {
 
   passwordsMatch: ValidatorFn = (control: AbstractControl): ValidationErrors | null  => {
     const pass = control.get('password')
@@ -37,12 +37,9 @@ export class RegisterComponent implements OnInit {
 
   constructor(private fb: FormBuilder,
     private countryService: CountryService,
-    private autService: AuthService,
+    private authService: AuthService,
     private router: Router) { 
     this.countries = this.countryService.getCountries()
-  }
-
-  ngOnInit(): void {
   }
 
   get name() {
@@ -88,7 +85,7 @@ export class RegisterComponent implements OnInit {
       password: this.password!.value,
 
     }
-    this.autService.signUp(newUser).then(res => {
+    this.authService.signUp(newUser).then(res => {
       this.router.navigateByUrl('/list')
     }).catch(err => {
       console.log(err);

@@ -1,0 +1,39 @@
+<section>
+     <div class="section-content">
+          <div class="compare">
+               <a class="link back" routerLink="/list">Volver</a>
+               <h2>Comparación</h2>
+               <div class="table" *ngIf="loaded">
+                    <div class="pokemon" *ngFor="let p of pokemons">
+                         <div class="head">
+                              <div class="prop image">
+                                   <img [src]="p.sprites.front_default">
+                              </div>
+                              <div class="prop name">
+                                   <h3>{{p.name}}</h3>
+                                   <p>Altura: {{p.height}}<br>
+                                   Peso: {{p.weight}}<br>
+                                   </p>
+                              </div>
+                         </div>
+                         <div class="prop">
+                              <p>Tipos:</p>
+                              <ul>
+                                   <li *ngFor="let t of p.types">
+                                        <p>{{t.type.name}}</p>
+                                   </li>
+                              </ul>
+                         </div>
+                         <div class="prop">
+                              <p>Movimientos aprendidos:</p>
+                              <ul>
+                                   <li *ngFor="let m of p.moves">
+                                        <p>{{m.move.name}}</p>
+                                   </li>
+                              </ul>
+                         </div>
+                    </div>
+               </div>
+          </div>
+     </div>
+</section>

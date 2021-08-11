@@ -5,16 +5,22 @@ import { ListRoutingModule } from './list-routing.module';
 import { ListComponent } from './list.component';
 import { HttpClientModule } from '@angular/common/http';
 import { PokemonService } from '../services/pokemon.service';
+import { FormsModule } from '@angular/forms';
+import { PokemonsComponent } from './pokemons/pokemons.component';
+import { CompareComponent } from './compare/compare.component';
 
 @NgModule({
   declarations: [
-    ListComponent
+    ListComponent,
+    PokemonsComponent,
+    CompareComponent
   ],
   imports: [
     CommonModule,
     ListRoutingModule,
     CommonComponentsModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [
     PokemonService

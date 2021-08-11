@@ -1,7 +1,7 @@
 <div class="landing">
     <!-- Navbar -->
     <app-navigation-bar>
-        <a aria-label="Inicio" class="nav-option" href="#" (click)="scrollTo($event, 'start')">Inicio</a>
+        <a aria-label="Inicio" class="nav-option" href="#" (click)="scrollTo($event, 'welcome')">Inicio</a>
         <a aria-label="Beneficios" class="nav-option" href="#" (click)="scrollTo($event, 'benefits')">Beneficios</a>
         <a *ngIf="userLoggedIn" aria-label="Lista" class="nav-option" routerLink="/list">Lista</a>
         <button *ngIf="!userLoggedIn; else logoutBtn" class="btn btn-outline nav-option" routerLink="/login">
@@ -13,7 +13,7 @@
             </button>
         </ng-template>
         <ng-container dropdown-options>
-            <a aria-label="Inicio" class="menu-option" href="#" (click)="scrollTo($event, 'start')">Inicio</a>
+            <a aria-label="Inicio" class="menu-option" href="#" (click)="scrollTo($event, 'welcome')">Inicio</a>
             <a aria-label="Beneficios" class="menu-option" href="#" (click)="scrollTo($event, 'benefits')">Beneficios</a>
             <a *ngIf="userLoggedIn" aria-label="Lista" class="menu-option" routerLink="/list">Lista</a>
             <a *ngIf="!userLoggedIn; else logoutOpt" aria-label="Login" class="menu-option" routerLink="/login">Login</a>
@@ -23,7 +23,7 @@
         </ng-container>
     </app-navigation-bar>
     <!-- Welcome -->
-    <section id="start" class="hero-section">
+    <section id="welcome" class="hero-section">
         <div class="section-content">
             <div class="hero">
                 <div class="title">
@@ -37,7 +37,7 @@
         </div>
     </section>
     <!-- Follow Us -->
-    <section class="follow-section">
+    <section id="follow" class="follow-section">
         <div class="section-content no-padding">
             <div class="image-container">
                 <img src="assets/images/img_woloxer.png">
@@ -53,7 +53,7 @@
                         </svg>
                         <span style="color: white;">@Wolox</span>
                     </div>
-                    <button class="btn btn-outline-transparent btn-big" (click)="openTwitter()">Síguenos</button>
+                    <button id="follow-btn" class="btn btn-outline-transparent btn-big" (click)="openTwitter()">Síguenos</button>
                 </div>
             </div>
             <div class="title">
@@ -88,7 +88,7 @@
         </h1>
         <h2>Te invitamos a ver mas información</h2>
         <div class="btn-container">
-            <button class="btn btn-big" (click)="openWolox()">Conocer más</button>
+            <button id="more-btn" class="btn btn-big" (click)="openWolox()">Conocer más</button>
         </div>
     </app-footer>
 </div>

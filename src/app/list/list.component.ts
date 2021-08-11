@@ -1,25 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
-import { PokemonService } from '../services/pokemon.service';
 
 @Component({
   selector: 'app-list',
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.scss']
 })
-export class ListComponent implements OnInit {
+export class ListComponent {
 
-  results: any[] = []
   constructor(private authService: AuthService, 
-    private router: Router,
-    private pokemonService: PokemonService) { }
-
-  ngOnInit(): void {
-    this.pokemonService.getPokemons().subscribe((res: any) => {
-      this.results = res.results
-    })
-  }
+    private router: Router) { }
 
   logout() {
     this.authService.logout()

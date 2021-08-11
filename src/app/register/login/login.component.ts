@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -9,7 +9,7 @@ import { AuthService, CredentialsInterface } from 'src/app/services/auth.service
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
 
   @Output() register = new EventEmitter();
 
@@ -21,9 +21,6 @@ export class LoginComponent implements OnInit {
   constructor(private fb: FormBuilder, 
     private autService: AuthService,
     private router: Router) { }
-
-  ngOnInit(): void {
-  }
 
   get email() {
     return this.loginForm.get('email')

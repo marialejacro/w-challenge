@@ -5,9 +5,10 @@
   --brand-green: #A3CC39;
   --light-green: #97CF00;
   --light-gray: #F2F5FA;
-  --medium-gray: #989ca3;
+  --medium-gray: #989CA3;
   --max-content-width: 1280px;
   --section-padding: 100px;
+  --blue-dark: #2a63df;
 }
 
 section {
@@ -51,7 +52,7 @@ section {
   transition: box-shadow 0.3s ease-in-out;
 }
 .navbar-shadow {
-  background-color: #fffffff5;
+  background-color: #ffffff;
   box-shadow: 0px 1px 12px 0px #d0d0d0;
   transition: box-shadow 0.3s ease-in-out;
 }
@@ -159,7 +160,7 @@ section {
   border: none;
 }
 .btn:hover:not([disabled]) {
-  background-color: #2a88df;
+  background-color: var(--blue-dark);
 }
 .btn-outline {
   border: 1px solid var(--brand-blue);
@@ -196,6 +197,11 @@ h2 {
   font-weight: normal;
   font-size: 1.8rem;
 }
+h3 {
+  font-family: "Montserrat Medium";
+  font-weight: normal;
+  font-size: 1.5rem;
+}
 .text-bold {
   font-family: "Montserrat Bold";
 }
@@ -226,7 +232,7 @@ footer {
 .form {
   .input-group {
       display: inline-grid;
-      padding: 8px 5px;
+      padding: 8px 0px;
   }
 }
 input {
@@ -246,6 +252,37 @@ input:focus-visible {
     margin-right: 8px;
   }
 }
+.autocomplete-container .input-container input {
+  padding: 8px !important;
+  font-family: 'Montserrat Medium';
+  font-size: 0.9rem !important;
+  border-radius: 5px !important;
+  border: 1px solid var(--medium-gray) !important;
+}
+.autocomplete-container .input-container input:focus-visible {
+  border: 2px solid var(--brand-blue) !important;
+  outline: none;
+}
+.autocomplete-container {
+  box-shadow: none !important;
+}
+.link {
+  color: var(--brand-blue);
+}
+.link:hover {
+  color: var(--blue-dark);
+}
+select {
+  padding: 8px;
+  font-family: 'Montserrat Medium';
+  font-size: 0.9rem;
+  border-radius: 5px;
+  border: 1px solid var(--medium-gray);
+}
+select:focus-visible {
+  border: 2px solid var(--brand-blue);
+  outline: none;
+}
 /* Responsive Styles */
 @media screen and (max-width: 1023px) {
   .btn-big {
@@ -262,6 +299,9 @@ input:focus-visible {
   h2 {
     font-size: 1.2rem;
   }
+  h3 {
+    font-size: 1.1rem;
+  }
 }
 
 @media screen and (max-width: 575px) {
@@ -269,6 +309,9 @@ input:focus-visible {
     font-size: 1.8rem;
   }
   h2 {
+    font-size: 1rem;
+  }
+  h3 {
     font-size: 1rem;
   }
 }

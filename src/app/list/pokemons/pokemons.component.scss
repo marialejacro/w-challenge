@@ -1,0 +1,84 @@
+.results {
+    flex-grow: 1;
+    padding-top: 90px;
+    margin-left: 20px;
+    @media screen and (max-width: 1023px) {
+        margin-right: 20px;
+    }
+    
+    .list-head {
+        display: flex;
+        justify-content: space-between;
+        @media screen and (max-width: 768px) {
+            display: block;
+        }   
+    }
+    .search {
+        display: flex;
+        @media screen and (max-width: 768px) {
+            margin-bottom: 20px;
+        }  
+        input {
+            margin-right: 10px;
+            @media screen and (max-width: 478px) {
+                font-size: 0.8rem;
+            }
+        }
+        button {
+            @media screen and (max-width: 478px) {
+                padding: 8px 15px;
+            }
+        }
+    }
+    .page-size-select {
+        label {
+            margin-right: 10px;
+        }
+    }
+    .pokemons {
+        display: grid;
+        list-style-type: none;
+        padding: 0;
+
+        @media screen and (max-width: 478px) {
+            grid-template-columns: repeat(2, 1fr);
+            font-size: 0.8rem; 
+        }
+        @media screen and (min-width: 478px) {
+            grid-template-columns: repeat(3, 1fr); 
+            font-size: 0.9rem; 
+        }
+        @media screen and (min-width: 1023px) {
+            grid-template-columns: repeat(4, 1fr);
+            font-size: initial;
+        }            
+    }
+    .pagination {
+        margin-top: 50px;
+        display: flex;
+        justify-content: center;
+        button {
+            padding: 5px 8px;
+            font-family: "Montserrat Medium";
+            background-color: white;
+            border: 1px solid var(--brand-blue);
+        }
+        button:hover {
+            background-color: var(--light-gray);
+        }
+        button.active {
+            background-color: var(--brand-blue);
+            color: white;
+        }
+        .pagination-btns {
+            @media screen and (max-width: 478px) {
+                display: none;
+            }
+        }
+        .btns-mobile {
+            @media screen and (min-width: 478px) {
+                display: none;
+            }
+        }
+    }
+}
