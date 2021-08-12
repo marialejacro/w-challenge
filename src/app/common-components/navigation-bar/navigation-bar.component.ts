@@ -1,19 +1,15 @@
-import { Component, HostListener, OnInit } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 
 @Component({
   selector: 'app-navigation-bar',
   templateUrl: './navigation-bar.component.html',
   styleUrls: ['./navigation-bar.component.scss']
 })
-export class NavigationBarComponent implements OnInit {
+export class NavigationBarComponent {
 
   openMenu = false
   scrolling = false
   constructor() { }
-
-  ngOnInit(): void {
-    console.log('nav init');
-  }
 
   @HostListener("window:scroll", [])
   onWindowScroll() {

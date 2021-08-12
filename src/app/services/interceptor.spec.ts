@@ -9,8 +9,8 @@ describe('Interceptor', () => {
       ]
   }));
 
-  it('should be created', () => {
-    const interceptor: Interceptor = TestBed.inject(Interceptor);
-    expect(interceptor).toBeTruthy();
-  });
+  // it('should be created', () => {
+  //   const interceptor: Interceptor = TestBed.inject(Interceptor);
+  //   expect(interceptor).toBeTruthy();
+  // });
 });

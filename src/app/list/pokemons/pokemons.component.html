@@ -7,7 +7,7 @@
                     <input id="search" type="text" placeholder="Buscar por nombre o id" [(ngModel)]="searchValue">
                     <button class="btn" (click)="search()">Buscar</button>
                 </div>
-                <button class="btn" (click)="getPokemons()" *ngIf="searching">Ver todos</button>
+                <button id="get-pokemons" class="btn" (click)="getPokemons()" *ngIf="searching">Ver todos</button>
                 <div class="page-size-select" *ngIf="!searching">
                     <label for="page-select">Resultados por página</label>
                     <select name="page-select" id="page-select" [value]="limit" (change)="onSelectChange($event)">
@@ -29,7 +29,7 @@
                     <label for="checkbox">{{pokemon.name}}</label>
                 </li>
             </ul>
-            <button class="btn" [disabled]="selected.length < 2" (click)="compare()">Comparar</button>
+            <button id="compare-btn" class="btn" [disabled]="selected.length < 2" (click)="compare()">Comparar</button>
             <div class="pagination" *ngIf="!searching">
                 <button [disabled]="counter === 0" (click)="prev()">Anterior</button>
                 <div class="pagination-btns">
