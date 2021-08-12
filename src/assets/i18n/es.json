@@ -1,0 +1,36 @@
+{
+    "START": "Inicio",
+    "LOGIN": "Iniciar sesión",
+    "BENEFITS": "Beneficios",
+    "LIST": "Lista",
+    "LOGOUT": "Logout",
+    "WELCOME_TITLE": {
+        "WELCOME_TO": "Bienvenido a tu",
+        "TECH_INTERVIEW" : "Entrevista Técnica",
+        "IN": "en",
+        "WOLOX": "Wolox"
+    },
+    "FOLLOW_US": "Síguenos",
+    "FOLLOW_TITLE": {
+        "WE_WORK":"Trabajamos para",
+        "TURN":"convertir",
+        "IDEAS":"ideas",
+        "INTO":" en ",
+        "PRODUCTS":"productos"
+    },
+    "BENEFITS_TITLE": "Entre los beneficios que ofrecemos se encuentran ",
+    "BENEFITS_LIST": {
+        "FLEXIBILITY": "Flexibilidad Horaria",
+        "HOME_OFFICE": "Home Office",
+        "TRAININGS": "Capacitaciones y workshops",
+        "FREE_SNACKS": "Snacks, frutas y bebidas gratis",
+        "REMOTE_WEEK": "Semana remota",
+        "KEEP_UP": "Trabajar en ultimas tecnologías"
+    },
+    "FOOTER_TITLE": {
+        "THANK_YOU": "Gracias por ",
+        "FOR_COMPLETING": "completar el ejercicio"
+    },
+    "INVITATION":"Te invitamos a ver mas información",
+    "MORE": "Conocer más"
+}

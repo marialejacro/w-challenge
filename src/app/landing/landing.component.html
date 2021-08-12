@@ -1,24 +1,25 @@
 <div class="landing">
     <!-- Navbar -->
     <app-navigation-bar>
-        <a aria-label="Inicio" class="nav-option" href="#" (click)="scrollTo($event, 'welcome')">Inicio</a>
-        <a aria-label="Beneficios" class="nav-option" href="#" (click)="scrollTo($event, 'benefits')">Beneficios</a>
-        <a *ngIf="userLoggedIn" aria-label="Lista" class="nav-option" routerLink="/list">Lista</a>
+        <a (click)="toggleLang()">{{otherLang}}</a>
+        <a aria-label="Inicio" class="nav-option" href="#" (click)="scrollTo($event, 'welcome')">{{"START" | translate}}</a>
+        <a aria-label="Beneficios" class="nav-option" href="#" (click)="scrollTo($event, 'benefits')">{{"BENEFITS" | translate}}</a>
+        <a *ngIf="userLoggedIn" aria-label="Lista" class="nav-option" routerLink="/list">{{"LIST" | translate}}</a>
         <button *ngIf="!userLoggedIn; else logoutBtn" class="btn btn-outline nav-option" routerLink="/login">
-            Login
+            {{"LOGIN" | translate}}
         </button>
         <ng-template #logoutBtn>
             <button class="btn btn-outline nav-option" (click)="logout()">
-                Logout
+                {{"LOGOUT" | translate}}
             </button>
         </ng-template>
         <ng-container dropdown-options>
-            <a aria-label="Inicio" class="menu-option" href="#" (click)="scrollTo($event, 'welcome')">Inicio</a>
-            <a aria-label="Beneficios" class="menu-option" href="#" (click)="scrollTo($event, 'benefits')">Beneficios</a>
-            <a *ngIf="userLoggedIn" aria-label="Lista" class="menu-option" routerLink="/list">Lista</a>
-            <a *ngIf="!userLoggedIn; else logoutOpt" aria-label="Login" class="menu-option" routerLink="/login">Login</a>
+            <a aria-label="Inicio" class="menu-option" href="#" (click)="scrollTo($event, 'welcome')">{{"START" | translate}}</a>
+            <a aria-label="Beneficios" class="menu-option" href="#" (click)="scrollTo($event, 'benefits')">{{"BENEFITS" | translate}}</a>
+            <a *ngIf="userLoggedIn" aria-label="Lista" class="menu-option" routerLink="/list">{{"LIST" | translate}}</a>
+            <a *ngIf="!userLoggedIn; else logoutOpt" aria-label="Login" class="menu-option" routerLink="/login">{{"LOGIN" | translate}}</a>
             <ng-template #logoutOpt>
-                <a aria-label="Login" class="menu-option" (click)="logout()">Logout</a>
+                <a aria-label="Login" class="menu-option" (click)="logout()">{{"LOGOUT" | translate}}</a>
             </ng-template>
         </ng-container>
     </app-navigation-bar>
@@ -27,9 +28,9 @@
         <div class="section-content">
             <div class="hero">
                 <div class="title">
-                    <h1>Bienvenido a tu <br>
-                        <span class="text-bold">Entrevista Técnica</span> en <br>
-                        <span class="text-bold text-secondary">Wolox</span>
+                    <h1>{{"WELCOME_TITLE.WELCOME_TO" | translate}}<br>
+                        <span class="text-bold">{{"WELCOME_TITLE.TECH_INTERVIEW" | translate}}</span> {{"WELCOME_TITLE.IN" | translate}} <br>
+                        <span class="text-bold text-secondary">{{"WELCOME_TITLE.WOLOX" | translate}}</span>
                     </h1>
                 </div>
                 <img src="assets/images/hero/Ic_ilustra_Hero.png">
@@ -53,14 +54,14 @@
                         </svg>
                         <span style="color: white;">@Wolox</span>
                     </div>
-                    <button id="follow-btn" class="btn btn-outline-transparent btn-big" (click)="openTwitter()">Síguenos</button>
+                    <button id="follow-btn" class="btn btn-outline-transparent btn-big" (click)="openTwitter()">{{"FOLLOW_US" | translate}}</button>
                 </div>
             </div>
             <div class="title">
-                <h1>Trabajamos para <br>
-                    <span class="text-bold text-primary">convertir </span>
-                    <span class="text-bold text-secondary">ideas</span> en <br>
-                    productos
+                <h1>{{"FOLLOW_TITLE.WE_WORK" | translate}}<br>
+                    <span class="text-bold text-primary">{{"FOLLOW_TITLE.TURN" | translate}} </span>
+                    <span class="text-bold text-secondary">{{"FOLLOW_TITLE.IDEAS"  | translate}}</span>{{"FOLLOW_TITLE.INTO" | translate}}<br>
+                    {{"FOLLOW_TITLE.PRODUCTS" | translate}}
                 </h1>
             </div>
         </div>
@@ -69,11 +70,11 @@
     <section id="benefits" class="benefits-section">
         <div class="section-content">
             <div class="benefits">
-                <h2>Entre los beneficios que ofrecemos se encuentran <span class="text-primary">;)</span></h2>
+                <h2>{{"BENEFITS_TITLE" | translate}} <span class="text-primary">;)</span></h2>
                 <div class="items">
                     <div *ngFor="let item of benefits" class="item">
                         <img [src]="item.image">
-                        <p>{{item.title}}</p>
+                        <p>{{item.title | translate}}</p>
                     </div>
                 </div>
             </div>
@@ -82,13 +83,12 @@
     <!-- Footer -->
     <app-footer>
         <h1>
-            <span class="text-bold">Gracias por </span>
-            <span class="text-bold text-primary">completar el ejercicio</span>
-
+            <span class="text-bold">{{"FOOTER_TITLE.THANK_YOU" | translate}}</span>
+            <span class="text-bold text-primary">{{"FOOTER_TITLE.FOR_COMPLETING" | translate}}</span>
         </h1>
-        <h2>Te invitamos a ver mas información</h2>
+        <h2>{{"INVITATION" | translate}}</h2>
         <div class="btn-container">
-            <button id="more-btn" class="btn btn-big" (click)="openWolox()">Conocer más</button>
+            <button id="more-btn" class="btn btn-big" (click)="openWolox()">{{"MORE" | translate}}</button>
         </div>
     </app-footer>
 </div>

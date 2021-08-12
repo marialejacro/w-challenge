@@ -3,6 +3,8 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { CommonComponentsModule } from './common-components/common-components.module';
+import { TranslateModule } from '@ngx-translate/core';
+import { TranslateService } from '@ngx-translate/core';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
@@ -11,10 +13,14 @@ describe('AppComponent', () => {
         RouterTestingModule,
         HttpClientTestingModule,
         CommonComponentsModule,
+        TranslateModule.forRoot()
       ],
       declarations: [
         AppComponent
       ],
+      providers: [
+        TranslateService
+      ]
     }).compileComponents();
   });
 

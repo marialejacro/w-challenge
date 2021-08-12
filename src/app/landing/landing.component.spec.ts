@@ -5,6 +5,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { CommonComponentsModule } from '../common-components/common-components.module';
 import { AuthService } from '../services/auth.service';
 import { LandingComponent } from './landing.component';
+import { TranslateModule, TranslateService} from '@ngx-translate/core';
 
 describe('LandingComponent', () => {
   let component: LandingComponent;
@@ -15,11 +16,13 @@ describe('LandingComponent', () => {
       imports: [
         RouterTestingModule,
         HttpClientTestingModule,
-        CommonComponentsModule
+        CommonComponentsModule,
+        TranslateModule.forRoot()
       ],
       declarations: [ LandingComponent ],
       providers: [
         { provide: AuthService, useClass: AuthServiceMock },
+        TranslateService
       ]
     })
     .compileComponents();

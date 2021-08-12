@@ -1,0 +1,36 @@
+{
+    "START": "Start",
+    "LOGIN": "Login",
+    "BENEFITS": "Benefits",
+    "LIST": "List",
+    "LOGOUT": "Logout",
+    "WELCOME_TITLE": {
+        "WELCOME_TO": "Welcome to your",
+        "TECH_INTERVIEW" : "Technical Interview",
+        "IN": "in",
+        "WOLOX": "Wolox"
+    },
+    "FOLLOW_US": "Follow us",
+    "FOLLOW_TITLE": {
+        "WE_WORK":"We work to",
+        "TURN":"turn",
+        "IDEAS":"ideas",
+        "INTO":" into ",
+        "PRODUCTS":"products"
+    },
+    "BENEFITS_TITLE": "Some of our benefits ",
+    "BENEFITS_LIST": {
+        "FLEXIBILITY": "Flexible schedule",
+        "HOME_OFFICE": "Home Office",
+        "TRAININGS": "Trainings and workshops",
+        "FREE_SNACKS": "Free snacks and drinks",
+        "REMOTE_WEEK": "Remote week",
+        "KEEP_UP": "Working in latest technologies"
+    },
+    "FOOTER_TITLE": {
+        "THANK_YOU": "Thank you ",
+        "FOR_COMPLETING": "for completing the challenge"
+    },
+    "INVITATION":"We invite you to know more about us",
+    "MORE": "Know more"
+}
